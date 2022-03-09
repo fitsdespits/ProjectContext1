@@ -13,14 +13,10 @@ public class OpenProgramScript : MonoBehaviour
     private bool isDragging;
 
     public GameObject program;
-    void Awake()
-    {
-        program.gameObject.SetActive(false);
-    }
 
     public void OnMouseDown()
     {
-        isDragging = true;
+        isDragging = true;    
     }
 
     public void OnMouseUp()
@@ -54,8 +50,10 @@ public class OpenProgramScript : MonoBehaviour
     }
     void DoubleClick()
     {
-        Debug.Log("Opening ", program);
+        Debug.Log("Opening " + program.gameObject.name);
         program.gameObject.SetActive(true);
+        
+        
     }
 }
 
