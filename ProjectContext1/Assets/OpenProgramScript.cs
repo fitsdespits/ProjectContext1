@@ -12,6 +12,8 @@ public class OpenProgramScript : MonoBehaviour
 
     private bool isDragging;
 
+    public float offset = 0f;
+
     public GameObject program;
 
     public void OnMouseDown()
@@ -52,8 +54,9 @@ public class OpenProgramScript : MonoBehaviour
     {
         Debug.Log("Opening " + program.gameObject.name);
         program.gameObject.SetActive(true);
-        
-        
+        program.transform.position = new Vector3(0, offset, program.transform.position.z);
+
+
     }
 }
 

@@ -1,0 +1,161 @@
+Delivered-To: schuurfinn@gmail.com
+Received: by 2002:a59:a485:0:b0:299:ee77:624b with SMTP id s5csp2790802vqo;
+        Thu, 24 Mar 2022 03:07:44 -0700 (PDT)
+X-Google-Smtp-Source: ABdhPJxsexvkMQ9EYTVeUduywKSR8WzXkJrUZKlR7csMdbziA1QFqbFVZc4qqU6DVTaFpbEkM5wV
+X-Received: by 2002:a5e:a80a:0:b0:645:b477:bc23 with SMTP id c10-20020a5ea80a000000b00645b477bc23mr2251416ioa.191.1648116463917;
+        Thu, 24 Mar 2022 03:07:43 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1648116463; cv=none;
+        d=google.com; s=arc-20160816;
+        b=VlKXuetePNUJenm3kxnhVSAqVzX4pKo+nLXM+/XKVbH0W/JUc4h3g6yrVbeK242dET
+         zgSo+VMHA6UZx68JjvqJzcoGWrHGRoXzvJljUP5zInCFqq2pK9A1QgMlVlVs5NaCk03g
+         kbMrvByJCg2oiGLx+E0hfzJEU4/pRHTd6DrMS+wFxVPAmfg9feg/Q4zAwVlBQfTZRAzR
+         uVU6RSCrxdjEaj8ixwHz00tZWuSgd3VWPE8S1AboBIcsb5u+O74rEmKdVOBgiqKip3qi
+         tKnKEFSRABNnLazNMfPKg1m9koeNqEA5DjOmb4vi3rKv1rz86MGrUibqIsd+E55gg8IR
+         VLUQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=content-transfer-encoding:content-disposition:mime-version
+         :user-agent:in-reply-to:references:subject:to:from:message-id:date
+         :dkim-signature;
+        bh=qZxKxCX8ziTP8ifYfRPVUEXxWbTt8+PVrJCaOR9eBsE=;
+        b=00e6jORYDNRzSyN0YxVCU64MKT5FiW4upv+k8U69zTX8VqLR9tHbQ1qn6NXjHZZr46
+         pUx6nUS5wa0TY3ez9XKIxoFI23zY2zBy9Fg9qLLtzfzA5GRVJqkcr/s0zXptXkl458xc
+         QeudawhJOAHG+uYOOwnoFkiYgJwRJ32MC9i8PcJlQC2vUIK+geNN7qrodvAl1uBUS4sP
+         bKZFjz4W6Gp3utZ/wjz3YtUf8Prk/m6hD6CcrB75gMUcktMngNoZjR3ux5VdjPzESpsr
+         71YaT/7opkNfb7+AkvdbwCXTXkX95o3dqD76CjkmXZwZfmMZMbitu5TBPpg2q2vXYaA7
+         nAGQ==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@hku.nl header.s=hku-mail header.b=cGcCwaN1;
+       spf=pass (google.com: domain of silver.huber@hku.nl designates 192.87.219.71 as permitted sender) smtp.mailfrom=silver.huber@hku.nl;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=hku.nl
+Return-Path: <silver.huber@hku.nl>
+Received: from yoda.hku.nl (yoda.hku.nl. [192.87.219.71])
+        by mx.google.com with ESMTPS id bs20-20020a056638451400b003215f9b0cc5si4234433jab.91.2022.03.24.03.07.43
+        for <schuurfinn@gmail.com>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Mar 2022 03:07:43 -0700 (PDT)
+Received-SPF: pass (google.com: domain of silver.huber@hku.nl designates 192.87.219.71 as permitted sender) client-ip=192.87.219.71;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@hku.nl header.s=hku-mail header.b=cGcCwaN1;
+       spf=pass (google.com: domain of silver.huber@hku.nl designates 192.87.219.71 as permitted sender) smtp.mailfrom=silver.huber@hku.nl;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=hku.nl
+Received: from localhost (localhost [127.0.0.1])
+	by yoda.hku.nl (Postfix) with ESMTP id 2E743C07888E;
+	Thu, 24 Mar 2022 11:07:13 +0100 (CET)
+X-Virus-Scanned: by amavisd-new at hku.nl
+Received: from yoda.hku.nl ([127.0.0.1])
+	by localhost (yoda.hku.nl [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id MGhbsxWqi3NW; Thu, 24 Mar 2022 11:07:13 +0100 (CET)
+Received: from chewbacca.hku.nl (chewbacca.hku.nl [192.87.219.176])
+	by yoda.hku.nl (Postfix) with ESMTP id 22B5FC078386;
+	Thu, 24 Mar 2022 11:03:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=hku.nl; s=hku-mail;
+	t=1648116219; bh=8u9RoUP+2RQuzEwQfvn2Yv2MuZ546hC26jb7/e8UUM0=;
+	h=Date:From:To:Subject:References:In-Reply-To;
+	b=cGcCwaN1uRN9Hvab+wOkCbxVQ0djnRqZA/6iyGMdXw93bcP8e6oFBCyzGbLajktvQ
+	 3V0EEFN6aLdGV0HlOJTliX8G6fzpzUj2H8u1Bibl79HzmRoY9MSBobCQuPMrq436gw
+	 6Fovm70/arWxqQe+1xugVmbuyoW2clsR8zFaivkA=
+Received: by chewbacca.hku.nl (Postfix, from userid 33)
+	id AA14F38164D; Thu, 24 Mar 2022 11:03:35 +0100 (CET)
+Received: from ip-213-127-73-143.ip.prioritytelecom.net
+ (ip-213-127-73-143.ip.prioritytelecom.net [213.127.73.143]) by
+ webmail.hku.nl (Horde Framework) with HTTPS; Thu, 24 Mar 2022 11:03:35 +0100
+Date: Thu, 24 Mar 2022 11:03:35 +0100
+Message-ID: <20220324110335.Horde.Xh6OhYJUv_xKJNyQ2OBxDO-@webmail.hku.nl>
+From: silver.huber@hku.nl
+To: 
+Subject: Ter voorbereiding op woensdag
+References: <20220309181402.Horde.NSNjkHW38kqJ4SedYPvlGNR@webmail.hku.nl>
+ <20220316203232.Horde.OJ7VbRaue2Ge_WWpFT0jVxd@webmail.hku.nl>
+ <20220323210346.Horde.Cth_NtllLlgDjUfIGOq_ehZ@webmail.hku.nl>
+In-Reply-To: <20220323210346.Horde.Cth_NtllLlgDjUfIGOq_ehZ@webmail.hku.nl>
+User-Agent: Horde Application Framework 5
+Content-Type: text/plain; charset=utf-8; format=flowed; DelSp=Yes
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+
+
+https://hku.instructure.com/courses/1501/assignments/1897
+
+Op 30 maart tussen 11:45 en 16:35 zullen de demonstraties van jullie=20=20
+applicaties=20plaatsvinden. Er zullen tenminste 2 beoordelaars bij=20=20
+jullie=20langskomen. Deze beoordelaars  hebben een strak schema, en=20=20
+zullen=20na 20 minuten naar de volgende groep moeten. Ook zal Viktor op=20=
+=20
+eigen=20gelegenheid rondlopen. Spreek hem aan om jezelf ervan te=20=20
+verzekeren=20een demonstratie te kunnen geven.
+
+
+Opdrachtomschrijving
+
+Maak een video van je product van een trailer van maximaal 1 minuut.=20=20
+Zorg=20dat de titel van je product en de groepsgenoten daarin getoond=20=20
+worden.=20Laat bij voorkeur een compilatie zien van interessante=20=20
+momenten=20vanuit je ervaring. Upload deze trailer binnen deze assignment.
+
+Zorg dat je product te beleven is door de beoordelaar.
+
+Bereid een live presentatie (inclusief demonstratie) voor van 10=20=20
+minuten.=20Daarna zal de beoordelaar ook nog de tijd willen nemen om=20=20
+vragen=20te stellen, en indien mogelijk alvast haar/zijn eerste=20=20
+indrukken=20geven van het product. Besteed in ieder geval aandacht aan=20=
+=20
+onderstaande=20onderwerpen (niet perse in onderstaande volgorde):
+
+Geef inzicht in de insteek welke jullie genomen hebben bij het=20=20
+uitvoeren=20van de opdracht.
+Geef aan wat het =E2=80=98applied goal=E2=80=99 van het product is.
+Demonstreer (of laat het product gebruiken) het product en benader=20=20
+daarbij=20zoveel mogelijk de situatie zoals deze gebruikt zou worden.
+Laat zien welke ontwerpkeuzes je hebt gemaakt om het spel toegankelijk=20=
+=20
+te=20maken voor je doelgroep. Denk daarbij in keuzes omtrent gameplay,=20=
+=20
+art,=20narratief en usability.
+Onderbouw waarom jouw =E2=80=98applied goal=E2=80=99 behaald zal worden met=
+ het product.
+Omschrijf het ontwikkelingsproces. Welke stappen waren essentieel voor=20=
+=20
+het=20ontwerpen/ontwikkelen van jullie product?
+Vertel iets over de technische uitdagingen welke jullie jullie=20=20
+tegenkwamen=20en hoe deze zijn opgelost?
+
+Het eindproduct zal worden beoordeeld op de onderstaande punten:
+
+Kwaliteit interactie/gameplay:
+- doel van prototype/proof-of-concept is voor gebruiker duidelijk
+
+- regels van prototype/proof-of-concept zijn duidelijk en goed=20=20
+hanteerbaar=20voor gebruiker
+
+- in prototype/proof-of-concept zijn relevante feedbackmechanismes opgenome=
+n
+
+Kwaliteit van concept:
+- concept is 'eigen' en origineel (in ieder geval geen directe kopie=20=20
+van=20bestaand spel)
+
+- concept vertoont samenhang tussen inhoud en gekozen gameplay/interactie
+
+- concept biedt mogelijk/ waarschijnlijk een oplossing voor geschetst probl=
+eem
+
+Kwaliteit van technische uitvoering/vormgeving:
+- werkend/helder prototype/proof-of-concept
+
+- vormgeving van prototype/proof-of-concept past bij de inhoud en de doelgr=
+oep
+
+- vormgeving ondersteunt de gameplay/interactie
+
+Presentatie:
+- is goed verzorgd (vormgeving, leesbaarheid, etc. )
+
+- heeft een duidelijke structuur (inleiding, conclusie, etc.) met=20=20
+goede=20selectie van relevante informatie (niet te veel, niet te weinig)
+
+- behandelt het uiteindelijke concept dusdanig dat de toeschouwers er=20=20
+een=20voorstelling van krijgen
+
+

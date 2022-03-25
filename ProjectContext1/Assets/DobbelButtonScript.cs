@@ -8,6 +8,8 @@ public class DobbelButtonScript : MonoBehaviour
     private bool nowThrowing = false;
 
     public GameObject dobbelError;
+    public GameObject marker;
+    public bool markerDone = false;
 
     public GameObject dobbel1, dobbel2, dobbel3, dobbel4, dobbel5, dobbel6;
 
@@ -29,6 +31,12 @@ public class DobbelButtonScript : MonoBehaviour
         if (GameDirectorScript.fixedCode && hasClicked && !nowThrowing)
         {
             nowThrowing = true;
+
+            if (!markerDone)
+            {
+                marker.gameObject.SetActive(false);
+                markerDone = true;
+            }
         }
 
         if (!GameDirectorScript.fixedCode && hasClicked && !nowThrowing)

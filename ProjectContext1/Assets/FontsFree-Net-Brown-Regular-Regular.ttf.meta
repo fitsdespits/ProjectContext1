@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 0237b531539596d479141dac43bb2b0c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Brown
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 9ad31721cbd3d204cb66af60417cf1f4, type: 3}
+  - {fileID: 12800000, guid: 6f5f1924c31f7e641b6a6190d4722fe3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
